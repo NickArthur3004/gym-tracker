@@ -1,8 +1,9 @@
 package com.nicolas.workout_gym_tracker.service;
 
 import com.nicolas.workout_gym_tracker.controller.dto.CreateExerciseRequest;
+import com.nicolas.workout_gym_tracker.controller.dto.ExerciseResponse;
 
 public interface ExerciseService {
 
-    String createExecise(CreateExerciseRequest request);
+    ExerciseResponse createExercise(CreateExerciseRequest request);
 }

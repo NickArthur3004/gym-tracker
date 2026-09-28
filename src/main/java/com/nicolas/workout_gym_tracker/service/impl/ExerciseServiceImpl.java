@@ -2,6 +2,8 @@ package com.nicolas.workout_gym_tracker.service.impl;
 
 
 import com.nicolas.workout_gym_tracker.controller.dto.CreateExerciseRequest;
+import com.nicolas.workout_gym_tracker.controller.dto.ExerciseResponse;
+import com.nicolas.workout_gym_tracker.controller.mappers.ExerciseMapper;
 import com.nicolas.workout_gym_tracker.model.Exercise;
 import com.nicolas.workout_gym_tracker.model.exception.MuscleGroupInvalid;
 import com.nicolas.workout_gym_tracker.repository.ExerciseRepository;
@@ -15,19 +17,20 @@ public class ExerciseServiceImpl implements ExerciseService {
     @Autowired
     ExerciseRepository exerciseRepository;
 
+    private final ExerciseMapper exerciseMapper;
 
-    @Override
-    public String createExecise(CreateExerciseRequest request) {
-
-        if (request.muscleGroup() == null){
-            throw new MuscleGroupInvalid("Muscle group is null");
-        }
-        saveNewExecise(request);
-        return "Exercise saved!";
+    public ExerciseServiceImpl(ExerciseMapper exerciseMapper) {
+        this.exerciseMapper = exerciseMapper;
     }
 
-    private void saveNewExecise(CreateExerciseRequest request) {
+    @Override
+    public ExerciseResponse createExercise(CreateExerciseRequest request) {
+
+        return exerciseMapper.toExerciseResponse(saveNewExercise(request));
+    }
+
+    private Exercise saveNewExercise(CreateExerciseRequest request) {
         Exercise exercise = new Exercise(request.name(), request.muscleGroup(), request.description());
-        exerciseRepository.save(exercise);
+        return exerciseRepository.save(exercise);
     }
 }
