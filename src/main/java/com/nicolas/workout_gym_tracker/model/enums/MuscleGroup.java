@@ -1,4 +1,4 @@
-package com.nicolas.workout_gym_tracker.entity.enums;
+package com.nicolas.workout_gym_tracker.model.enums;
 
 public enum MuscleGroup {
     PEITO,

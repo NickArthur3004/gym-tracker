@@ -1,7 +1,7 @@
 package com.nicolas.workout_gym_tracker.repository;
 
-import com.nicolas.workout_gym_tracker.entity.Exercise;
-import com.nicolas.workout_gym_tracker.entity.enums.MuscleGroup;
+import com.nicolas.workout_gym_tracker.model.Exercise;
+import com.nicolas.workout_gym_tracker.model.enums.MuscleGroup;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;

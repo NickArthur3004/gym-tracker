@@ -1,6 +1,6 @@
-package com.nicolas.workout_gym_tracker.entity;
+package com.nicolas.workout_gym_tracker.model;
 
-import com.nicolas.workout_gym_tracker.entity.enums.MuscleGroup;
+import com.nicolas.workout_gym_tracker.model.enums.MuscleGroup;
 import jakarta.persistence.*;
 
 @Entity
